@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chính Sách Quyền Riêng Tư — La Bàn Phong Thuỷ</title>
+  <meta name="description" content="Chính sách quyền riêng tư của ứng dụng La Bàn Phong Thuỷ Bát Trạch (fortune-compass). Cam kết bảo mật, tính toán trực tiếp trên thiết bị (on-device) và không thu thập dữ liệu người dùng.">
+  <style>
+    :root {
+      --bg-dark: #1A0B0D;
+      --surface-espresso: #2A1215;
+      --surface-mahogany: #33171A;
+      --hero-burgundy: #9E1B1E;
+      --border-accent: #5A2A2C;
+      --gold-primary: #F9CF6E;
+      --gold-frame: rgba(238, 192, 107, 0.28);
+      --text-primary: #FFF3DC;
+      --text-secondary: #D4C3B3;
+      --text-muted: #9E8C7F;
+      --font-serif: "Playfair Display", "Times New Roman", Georgia, serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      padding-bottom: 60px;
+    }
+
+    .header-bar {
+      background-color: #1A0B0D;
+      border-bottom: 1px solid #5A2A2C;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-bar .brand {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-offline {
+      background: rgba(243, 200, 134, 0.12);
+      border: 1px solid var(--gold-frame);
+      color: var(--gold-primary);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero-banner {
+      background: linear-gradient(180deg, #9E1B1E 0%, #6E0F14 100%);
+      border: 1px solid var(--gold-frame);
+      box-shadow: inset 0 0 0 1px rgba(243, 200, 134, 0.15), 0 12px 30px rgba(0, 0, 0, 0.45);
+      border-radius: 16px;
+      margin: 32px 0 28px;
+      padding: 36px 32px;
+      text-align: center;
+    }
+
+    .hero-banner h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .hero-banner p.subtitle {
+      color: var(--gold-primary);
+      font-size: 0.95rem;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .hero-banner .meta-info {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .card {
+      background-color: var(--surface-espresso);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(243, 200, 134, 0.4);
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--text-primary);
+    }
+
+    .card-title .index {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      background: rgba(243, 200, 134, 0.1);
+      border: 1px solid var(--gold-frame);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card ul {
+      margin-left: 20px;
+      margin-bottom: 12px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .card li strong {
+      color: var(--text-primary);
+    }
+
+    .highlight-box {
+      background-color: var(--surface-mahogany);
+      border-left: 3px solid var(--gold-primary);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 14px 0;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-accent);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--gold-primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .hero-banner {
+        padding: 24px 18px;
+      }
+      .hero-banner h1 {
+        font-size: 1.5rem;
+      }
+      .card {
+        padding: 18px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header-bar">
+    <div class="brand">
+      <span>🧭</span>
+      <span>La Bàn Phong Thuỷ</span>
+    </div>
+    <div class="badge-offline">Bảo Mật Cục Bộ (On-Device)</div>
+  </header>
+
+  <main class="container">
+    <section class="hero-banner">
+      <h1>Chính Sách Quyền Riêng Tư</h1>
+      <p class="subtitle">Xử Lý Trên Thiết Bị & Tôn Trọng Quyền Riêng Tư Của Bạn</p>
+      <div class="meta-info">Phiên bản 1.0.0 • Ngày có hiệu lực: 11/11/2026 • Ứng dụng: com.vantu1998.fortunecompass</div>
+    </section>
+
+    <!-- 01. Tôn chỉ cốt lõi -->
+    <article class="card">
+      <h2 class="card-title">
+        <span class="index">01</span>
+        <span>Tôn Chỉ Cốt Lõi: Tính Toán Trực Tiếp Trên Thiết Bị (On-Device Processing)</span>
+      </h2>
+      <p>Ứng dụng <strong>La Bàn Phong Thuỷ</strong> (sau đây gọi tắt là "Ứng dụng") được xây dựng với nguyên tắc tôn trọng quyền riêng tư của người dùng. Mọi thuật toán cốt lõi tính toán chuyển đổi Âm Lịch (TS. Hồ Ngọc Đức), Bát Trạch Minh Kính, Can Chi, Tử Vi Sao Hạn, Gieo Quẻ Kinh Dịch và Chấm Điểm Hợp Cạ đều được thực thi <strong>trực tiếp ngay trên thiết bị của bạn (On-Device)</strong>.</p>
+      <div class="highlight-box">
+        Ứng dụng <strong>KHÔNG</strong> bắt buộc tạo tài khoản, <strong>KHÔNG</strong> thu thập danh tính cá nhân, và <strong>KHÔNG</strong> tự động gửi dữ liệu người dùng ra khỏi thiết bị của bạn.
+      </div>
+    </article>
+
+    <!-- 02. Dữ liệu lưu trữ trên máy -->
+    <article class="card">
+      <h2 class="card-title">
+        <span class="index">02</span>
+        <span>Dữ Liệu Được Lưu Trữ Cục Bộ (Local Storage)</span>
+      </h2>
+      <p>Khi bạn sử dụng ứng dụng, một số dữ liệu cấu hình sẽ được lưu trữ an toàn trong vùng nhớ sandbox riêng biệt của ứng dụng trên thiết bị (AsyncStorage):</p>
+      <ul>
+        <li><strong>Hồ sơ người dùng:</strong> Năm sinh và giới tính (dùng để xác định Quái Mệnh, Cung Phi Bát Trạch, Sao Cửu Diệu và đối chiếu tuổi xông đất).</li>
+        <li><strong>Sổ Lộc May Mắn:</strong> Lịch sử gieo Quẻ Xăm, kết quả Vòng Quay, Quẻ Kinh Dịch và danh sách quẻ yêu thích.</li>
+        <li><strong>Cài đặt ứng dụng:</strong> Tùy chọn giao diện (Sáng / Tối), bật/tắt phản hồi rung (Haptics), chế độ giảm chuyển động (Reduce Motion) và tùy chọn nhắc lịch lễ Tết.</li>
+      </ul>
+      <p>Các dữ liệu này hoàn toàn nằm dưới quyền kiểm soát của bạn. Bạn có thể xóa toàn bộ dữ liệu này bất cứ lúc nào thông qua nút <em>"Đặt Lại Toàn Bộ Dữ Liệu"</em> trên màn <strong>Cài Đặt</strong> (chạm biểu tượng bánh răng ở góc trên màn hình), hoặc gỡ cài đặt ứng dụng.</p>
+    </article>
+
+    <!-- 03. Quyền truy cập phần cứng & Cảm biến -->
+    <article class="card">
+      <h2 class="card-title">
+        <span class="index">03</span>
+        <span>Quyền Truy Cập Phần Cứng & Cảm Biến Thiết Bị</span>
+      </h2>
+      <p>Để cung cấp trải nghiệm La Bàn và Gieo Quẻ tương tác mượt mà, ứng dụng yêu cầu quyền truy cập vào các cảm biến phần cứng sau:</p>
+      <ul>
+        <li><strong>Cảm biến từ trường (Magnetometer):</strong> Được sử dụng để xác định góc xoay phương vị thực tế (Compass Heading) và hiển thị 24 Sơn Vị, hướng Cát/Hung theo thời gian thực. Dữ liệu này chỉ được tính toán trên bộ nhớ RAM tạm thời và không được ghi lại.</li>
+        <li><strong>Cảm biến chuyển động & Gia tốc (Accelerometer):</strong> Được sử dụng để nhận diện cử chỉ lắc thiết bị khi bạn thực hiện nghi thức <em>"Lắc Ống Xăm"</em> hoặc gieo quẻ Kinh Dịch đầu xuân. Nếu thiết bị không có cảm biến hoặc bạn không muốn cấp quyền, ứng dụng luôn cung cấp nút bấm chạm màn hình thay thế.</li>
+        <li><strong>Phản hồi xúc giác (Vibrator / Haptics):</strong> Tạo rung động vật lý nhẹ khi kim la bàn đi qua các ranh giới cung hướng hoặc khi quay bánh xe may mắn. Bạn có thể tắt tính năng này trong phần Cài Đặt.</li>
+        <li><strong>Thông báo cục bộ (POST_NOTIFICATIONS):</strong> Chỉ dùng để lên lịch nhắc các mốc lễ truyền thống (Ông Công Ông Táo, Đêm Giao Thừa, Mùng 1 Tết) và Giờ Hoàng Đạo sáng sớm (06:30). Ứng dụng không sử dụng dịch vụ thông báo đẩy (Push Notifications) từ xa.</li>
+      </ul>
+    </article>
+
+    <!-- 04. Quyền truy cập bộ nhớ & Mạng -->
+    <article class="card">
+      <h2 class="card-title">
+        <span class="index">04</span>
+        <span>Cam Kết Không Thu Thập Dữ Liệu Bộ Nhớ Ngoài</span>
+      </h2>
+      <p>Ứng dụng tuân thủ nghiêm ngặt chính sách bảo vệ dữ liệu của Google Play và Apple App Store:</p>
+      <ul>
+        <li>Không yêu cầu quyền truy cập danh bạ, vị trí GPS chính xác, camera hoặc microphone.</li>
+        <li>Không yêu cầu quyền đọc/ghi toàn bộ bộ nhớ ngoài (<code>READ_EXTERNAL_STORAGE</code> / <code>MANAGE_EXTERNAL_STORAGE</code>).</li>
+        <li>Khi bạn bấm chia sẻ thẻ kết quả 9:16, ứng dụng vẽ thẻ thành ảnh tạm trong bộ nhớ đệm của ứng dụng rồi mở khung chia sẻ của hệ điều hành; bạn tự chọn nơi gửi. Ứng dụng không truy cập thư viện ảnh và không tự gửi ảnh đi đâu.</li>
+      </ul>
+    </article>
+
+    <!-- 05. Thay đổi trong tương lai -->
+    <article class="card">
+      <h2 class="card-title">
+        <span class="index">05</span>
+        <span>Thay Đổi Trong Tương Lai</span>
+      </h2>
+      <p>Nếu một phiên bản sau này bổ sung tính năng cần thu thập hoặc gửi dữ liệu ra khỏi thiết bị (ví dụ quảng cáo hoặc dịch vụ trực tuyến), chúng tôi sẽ cập nhật chính sách này và các khai báo trên App Store / Google Play <strong>trước khi</strong> phát hành phiên bản đó. Các công cụ cốt lõi (la bàn, lịch âm, Bát Trạch, gieo quẻ) tiếp tục hoạt động không cần mạng.</p>
+    </article>
+
+    <!-- 06. Quyền riêng tư của trẻ em -->
+    <article class="card">
+      <h2 class="card-title">
+        <span class="index">06</span>
+        <span>Bảo Vệ Quyền Riêng Tư Của Trẻ Em</span>
+      </h2>
+      <p>Ứng dụng không hướng tới trẻ em dưới 13 tuổi và chúng tôi không cố ý thu thập thông tin cá nhân từ đối tượng này (hoặc độ tuổi tối thiểu theo luật định tại từng quốc gia). Các trò chơi dân gian (Bóc Lì Xì, Vòng Quay Đón Lộc, Quẻ Xăm, Kinh Dịch) mang tính chất văn hóa, giải trí; số tiền hiển thị trong trò chơi là <strong>số ảo, không dùng tiền thật, không có giá trị quy đổi và không có yếu tố đặt cược</strong>.</p>
+    </article>
+
+    <!-- 07. Thay đổi & Liên hệ -->
+    <article class="card">
+      <h2 class="card-title">
+        <span class="index">07</span>
+        <span>Cập Nhật Chính Sách & Thông Tin Liên Hệ</span>
+      </h2>
+      <p>Chúng tôi có thể cập nhật Chính Sách Quyền Riêng Tư này theo thời gian để phản ánh các cải tiến về tính năng hoặc tuân thủ các quy định pháp luật mới nhất. Mọi cập nhật sẽ được thông báo thông qua ghi chú phát hành của phiên bản ứng dụng mới.</p>
+      <p>Nếu bạn có bất kỳ câu hỏi, phản hồi hoặc đóng góp ý kiến nào về vấn đề bảo mật và quyền riêng tư, vui lòng liên hệ với nhà phát triển:</p>
+      <div class="highlight-box">
+        <strong>Nhà phát triển:</strong> Văn Tú (fortune-compass team)<br>
+        <strong>Email hỗ trợ:</strong> <a href="mailto:vantu1998@gmail.com" style="color: var(--gold-primary);">vantu1998@gmail.com</a><br>
+        <strong>Mã nguồn & Giấy phép:</strong> Tra cứu thuật toán tại kho lưu trữ dự án GitHub.
+      </div>
+    </article>
+
+    <footer>
+      <p>© 2026 La Bàn Phong Thuỷ (fortune-compass). Mọi quyền được bảo lưu.</p>
+      <p style="margin-top: 6px;">Được thiết kế với phong cách Á Đông đương đại & Bảo mật xử lý trên thiết bị (On-Device).</p>
+    </footer>
+  </main>
+
+</body>
+</html>
